@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DAOLibrary.Repository.DiemChuan;
+using DTOLibrary.CrawlDiemChuan;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,11 +8,32 @@ using System.Threading.Tasks;
 
 namespace university.api.Controllers.DiemChuan
 {
-    public class UniversityController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UniversityController : ControllerBase
     {
-        public IActionResult Index()
+        private IUniversityRepository universityRepository;
+
+        public UniversityController()
         {
-            return View();
+            universityRepository = new UniversityRepository();
+        }
+
+        // GET: api/<UniversityController>
+        [HttpGet]
+        [ProducesResponseType(typeof(List<University>), 200)]
+        [ProducesResponseType(500)]
+        public IActionResult Get()
+        {
+            try
+            {
+                List<University> universities = universityRepository.GetUniversities();
+                return StatusCode(200, universities);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }

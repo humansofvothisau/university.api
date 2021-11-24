@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DAOLibrary.Repository.THPT;
+using DTOLibrary.THPT;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,11 +8,46 @@ using System.Threading.Tasks;
 
 namespace university.api.Controllers.THPT
 {
-    public class TotNghiepThptController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TotNghiepThptController : ControllerBase
     {
-        public IActionResult Index()
+        private int year = DateTime.Now.Year;
+        private IThptDataRepository thptDataRepository;
+
+        public TotNghiepThptController()
         {
-            return View();
+            thptDataRepository = new ThptDataRepository();
+        }
+
+        //// GET: api/<TotNghiepTHPTController>
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
+
+        // GET api/<TotNghiepTHPTController>/5
+        [HttpGet("{code}")]
+        [ProducesResponseType(typeof(ThptData), 200)]
+        [ProducesResponseType(500)]
+        public IActionResult Get(string code)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(code))
+                {
+                    throw new Exception("Invalid student code!!");
+                }
+
+                // Get Data
+                ThptData data = thptDataRepository.GetTHPTData(code, year).Result;
+                return StatusCode(200, data);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }
