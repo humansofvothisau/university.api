@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DTOLibrary.CrawlDiemChuan
 {
-    class Benchmark
+    public class Benchmark
     {
+        public int Year { get; set; }
+        public BenchmarkDetail[] Data { get; set; }
     }
 }

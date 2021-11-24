@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DTOLibrary.CrawlDiemChuan
 {
-    class University
+    public class University
     {
+        public string UniCode { get; set; }
+        public string UniName { get; set; }
+        public string Url { get; set; }
     }
 }

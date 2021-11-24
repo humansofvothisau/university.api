@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DTOLibrary.THPT
 {
-    class GroupThptData
+    public class GroupThptData
     {
+        public string Group { get; set; }
+        public double Point { get; set; }
     }
 }
