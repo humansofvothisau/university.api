@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Data Layer", "3. Data La
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOLibrary", "DTOLibrary\DTOLibrary.csproj", "{C059B5D1-66C7-4CA5-84AA-063F903D1F9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "university.api", "university.api\university.api.csproj", "{1E655A22-7A1E-4A61-AD7E-60A059F11F01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C059B5D1-66C7-4CA5-84AA-063F903D1F9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C059B5D1-66C7-4CA5-84AA-063F903D1F9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C059B5D1-66C7-4CA5-84AA-063F903D1F9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E655A22-7A1E-4A61-AD7E-60A059F11F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E655A22-7A1E-4A61-AD7E-60A059F11F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E655A22-7A1E-4A61-AD7E-60A059F11F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E655A22-7A1E-4A61-AD7E-60A059F11F01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5A283B07-6A03-4967-AED0-C4C82C3B98E0} = {4DF218CB-FCA4-4B73-B981-569D7F22D60A}
 		{C059B5D1-66C7-4CA5-84AA-063F903D1F9B} = {7FB2B4CE-F643-494D-B7EC-FFE8B653C172}
+		{1E655A22-7A1E-4A61-AD7E-60A059F11F01} = {D4813320-04A4-4C20-97B1-6137ADF3F469}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FE88249F-65A6-4356-90C6-D611BE45A74E}
