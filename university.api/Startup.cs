@@ -27,10 +27,23 @@ namespace university.api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers()
+                .AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "university.api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { 
+                    Title = "HOV University Data", 
+                    Version = "v1" 
+                });
+            });
+
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                c.AddPolicy("AllowHeader", options => options.AllowAnyHeader());
+                c.AddPolicy("AllowMethod", options => options.AllowAnyMethod());
             });
         }
 
@@ -49,6 +62,13 @@ namespace university.api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(options =>
+            {
+                options.AllowAnyHeader();
+                options.AllowAnyMethod();
+                options.AllowAnyOrigin();
+            });
 
             app.UseEndpoints(endpoints =>
             {
