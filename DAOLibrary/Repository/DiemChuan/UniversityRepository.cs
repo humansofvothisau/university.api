@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DAOLibrary.DataAccess.DiemChuan;
+using DTOLibrary.CrawlDiemChuan;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace DAOLibrary.Repository.DiemChuan
 {
-    class UniversityRepository
+    public class UniversityRepository : IUniversityRepository
     {
+        public List<University> GetUniversities()
+            => UniversityDAO.Instance.GetUniversities();
     }
 }
