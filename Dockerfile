@@ -26,5 +26,5 @@ RUN dotnet publish -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT [ "dotnet", "university.api.dll"]
-# CMD ASPNETCORE_URLS=http://*:$PORT dotnet university.api.dll
+# ENTRYPOINT [ "dotnet", "university.api.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet university.api.dll
