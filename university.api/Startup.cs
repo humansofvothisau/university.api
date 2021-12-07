@@ -41,10 +41,6 @@ namespace university.api
                 c.AddPolicy("AllowHeader", options => options.AllowAnyHeader());
                 c.AddPolicy("AllowMethod", options => options.AllowAnyMethod());
             });
-            services.Configure<ForwardedHeadersOptions>(options =>
-            {
-                options.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
