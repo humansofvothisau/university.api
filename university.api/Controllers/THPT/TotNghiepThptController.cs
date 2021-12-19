@@ -2,6 +2,7 @@
 using DTOLibrary.THPT;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 
 namespace university.api.Controllers.THPT
 {
@@ -42,6 +43,38 @@ namespace university.api.Controllers.THPT
                 return StatusCode(200, data);
             }
             catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        // GET api/<TotNghiepTHPTController>/quotes
+        [HttpGet("quotes")]
+        [ProducesResponseType(typeof(List<Quotes>), 200)]
+        [ProducesResponseType(500)]
+        public IActionResult GetQuotes()
+        {
+            try
+            {
+                List<Quotes> quotes = thptDataRepository.GetQuotes();
+                return StatusCode(200, quotes);
+            } catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        // GET api/<TotNghiepThptController>/schedule
+        [HttpGet("schedule")]
+        [ProducesResponseType(typeof(ScheduleJson), 200)]
+        [ProducesResponseType(500)]
+        public IActionResult GetSchedule()
+        {
+            try
+            {
+                ScheduleJson schedule = thptDataRepository.GetSchedule();
+                return StatusCode(200, schedule);
+            } catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
             }

@@ -1,0 +1,30 @@
+{
+  "schedule": [
+    {
+      "date": "26/04 - 10/05",
+      "morning": "Thí sinh tiến hành đăng ký dự thi",
+      "afternoon": ""
+    },
+    {
+      "date": "Ngày 06/07",
+      "morning": "",
+      "afternoon": "14h00: Phổ biến quy chế thi"
+    },
+    {
+      "date": "Ngày 07/07",
+      "morning": "7h30 - 9h35: Ngữ Văn",
+      "afternoon": "14h20 - 16h00: Toán"
+    },
+    {
+      "date": "Ngày 08/07",
+      "morning": "7h30 - 10h25: KHTN / KHXH",
+      "afternoon": "14h20 - 15h30: Ngoại Ngữ"
+    },
+    {
+      "date": "Ngày 09/07",
+      "morning": "Dự phòng",
+      "afternoon": ""
+    }
+  ],
+  "note": "Giờ trên đây tính theo giờ phát đề"
+}

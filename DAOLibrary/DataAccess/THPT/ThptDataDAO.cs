@@ -2,8 +2,10 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace DAOLibrary.DataAccess.THPT
@@ -112,6 +114,34 @@ namespace DAOLibrary.DataAccess.THPT
             }
 
             return data;
+        }
+
+        internal List<Quotes> GetQuotes()
+        {
+            List<Quotes> quotes = new List<Quotes>();
+
+            try
+            {
+                quotes = JsonConvert.DeserializeObject<List<Quotes>>(File.ReadAllText("quotes.json", Encoding.UTF8));
+            } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return quotes;
+        }
+
+        internal ScheduleJson GetSchedule()
+        {
+            ScheduleJson scheduleJson = new ScheduleJson();
+            try
+            {
+                scheduleJson = JsonConvert.DeserializeObject<ScheduleJson>(File.ReadAllText("schedule.json", Encoding.UTF8));
+            } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return scheduleJson;
         }
     }
 
