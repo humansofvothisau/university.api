@@ -70,6 +70,7 @@ namespace university.api.Controllers.THPT
         [ProducesResponseType(500)]
         public IActionResult GetSchedule()
         {
+
             try
             {
                 ScheduleJson schedule = thptDataRepository.GetSchedule();
