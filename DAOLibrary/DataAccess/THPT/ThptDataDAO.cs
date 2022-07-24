@@ -97,13 +97,18 @@ namespace DAOLibrary.DataAccess.THPT
                             List<KeyValuePair<string, double>> groups = new List<KeyValuePair<string, double>>();
 
                             Newtonsoft.Json.Linq.JArray array = JsonConvert.DeserializeObject<dynamic>(data.ResultGroup);
-                            foreach (var group in array.ToList())
+                            if (array != null)
                             {
-                                dynamic _group = JsonConvert.DeserializeObject<dynamic>(group.ToString());
-                                groups.Add(new KeyValuePair<string, double>(_group.g.ToString(), double.Parse(_group.p.ToString())));
-                            }
+                                foreach (var group in array.ToList())
+                                {
+                                    dynamic _group = JsonConvert.DeserializeObject<dynamic>(group.ToString());
+                                    groups.Add(new KeyValuePair<string, double>(_group.g.ToString(), double.Parse(_group.p.ToString())));
+                                }
 
-                            data.ResultGroupConvert = groups;
+                                data.ResultGroupConvert = groups;
+
+                            }
+                            
                         }
                     }
                 }
